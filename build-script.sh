@@ -82,6 +82,7 @@ matprod matquad matrow matsmul matspec matsvd matsym mattrans \
 matxtxi matxtxix mat2jco cmaes_p sceua_p jactest rdmulres obs2obs \
 supobspar supobsprep supobspar1 sensan senschek beopest"
 
+# Do not define USE_D_FORMAT in makefile. d_test compile error
 wget -nv -O $BUILD_ROOT/pest13-trusty64-master.zip https://github.com/allixender/pest13-trusty64/archive/master.zip \
   && cd $BUILD_ROOT/ && unzip pest13-trusty64-master.zip \
   && cd $BUILD_ROOT/pest13-trusty64-master/src \
