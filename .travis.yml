@@ -1,0 +1,35 @@
+language: cpp
+sudo: required
+dist: trusty
+services:
+- docker
+python:
+- '2.7'
+compiler:
+- gcc
+os:
+- linux
+env:
+  global:
+  - COMMIT=${TRAVIS_COMMIT::8}
+before_install:
+- echo $LANG
+- echo $LC_ALL
+before_script:
+install:
+script:
+- docker build -f Dockerfile -t $TRAVIS_REPO_SLUG:$COMMIT .
+after_success:
+- docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
+  ; fi`
+- docker tag $TRAVIS_REPO_SLUG:$COMMIT $TRAVIS_REPO_SLUG:$TAG
+- docker tag $TRAVIS_REPO_SLUG:$COMMIT $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_NUMBER
+- docker push $TRAVIS_REPO_SLUG
+branches:
+  only:
+  - master
+  - "/^v\\d+\\./"
+notifications:
+  email:
+  - allixender@googlemail.com
