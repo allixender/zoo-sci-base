@@ -85,7 +85,7 @@ supobspar supobsprep supobspar1 sensan senschek beopest"
 wget -nv -O $BUILD_ROOT/pest13-trusty64-master.zip https://github.com/allixender/pest13-trusty64/archive/master.zip \
   && cd $BUILD_ROOT/ && unzip pest13-trusty64-master.zip \
   && cd $BUILD_ROOT/pest13-trusty64-master/src \
-  && make cppp && make d_test && make -f pest.mak all && make -f ppest.mak all \
+  && make cppp && make -f pest.mak all && make -f ppest.mak all \
   && make -f pestutl1.mak all && make -f pestutl2.mak all && make -f pestutl3.mak all \
   && make -f pestutl4.mak all && make -f pestutl5.mak all && make -f pestutl6.mak all \
   && make -f sensan.mak all && make -f beopest.mak all \
