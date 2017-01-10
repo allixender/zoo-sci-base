@@ -2,7 +2,7 @@
 
 export RUNTIME_PACKAGES="wget libxml2 libxslt1.1 curl zip openssl libgd-dev libfcgi0ldbl libcairo2 	\
 libgdal1h libgeos-3.4.2 libgeos-c1 libgfortran3 gfortran-multilib libquadmath0 libmozjs185-1.0 libproj0 libgeotiff2 \
-libjpeg62 libtiff5 libpng3 libxslt1.1 python2.7 libwxbase3.0-0 libwxgtk3.0-0 wx-common apache2"
+libjpeg62 libtiff5 libpng3 libxslt1.1 python2.7 python-tk libwxbase3.0-0 libwxgtk3.0-0 wx-common apache2"
 
 apt-get update -y \
       && apt-get install -y --no-install-recommends $RUNTIME_PACKAGES
